@@ -1,0 +1,47 @@
+.profile__wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.profile__avatar {
+  height: 300px;
+  width: 300px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 4rem;
+}
+.profile__info {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.profile__item {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+.profile__item.profile__email {
+  text-transform: initial;
+}
+.profile__item span {
+  font-weight: 600;
+}
+.profile__name {
+  text-transform: capitalize;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+.avt-name {
+  font-size: 80px;
+}
+@media (max-width: 100px) {
+}

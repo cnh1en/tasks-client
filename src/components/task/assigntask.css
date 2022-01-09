@@ -1,0 +1,26 @@
+.card__header {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.form__input > textarea {
+  /* display: block;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  padding: 20px;
+  outline-color: var(--main-color);
+  background-color: var(--main-bg);
+  color: var(--txt-color); */
+}
+
+/* .form__select {
+  display: block;
+  border-radius: var(--border-radius);
+  border: 1px solid #ccc;
+  padding: 13px;
+  outline-color: var(--main-color);
+  background-color: var(--main-bg);
+  color: var(--txt-color);
+} */
+/* .form__select > option {
+  margin-bottom: 20px;
+} */

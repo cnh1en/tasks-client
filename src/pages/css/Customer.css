@@ -1,0 +1,8 @@
+.clear {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.clear:hover {
+  color: red;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+.tasks__header > h3 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+.task {
+  position: relative;
+}
+.task__title {
+  font-weight: bold;
+}
+.task__icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  margin-top: 0;
+}
+.task__icon > i {
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 20px;
+}
+.task__icon > i:hover {
+  opacity: 0.8;
+}
+.deadline {
+  color: red;
+  font-style: italic;
+}
+.task.die {
+  background-color: #ccc;
+}
+.task.done {
+  border-left: 10px solid green;
+}
+.task.pending {
+  border-left: 10px solid red;
+}

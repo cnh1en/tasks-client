@@ -1,0 +1,28 @@
+.form__header {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+.form__input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form__submit {
+  text-align: right;
+}
+.button-submit {
+  padding: 12px 30px;
+  background-color: var(--main-color);
+  color: var(--txt-white);
+  text-transform: uppercase;
+  display: inline;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  text-align: right;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+.button-submit:hover {
+  opacity: 0.8;
+}
