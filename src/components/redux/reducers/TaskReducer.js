@@ -29,6 +29,11 @@ const TaskReducer = (state = { tasks: [], error: {} }, action) => {
         ...state,
         error: action.payload.error,
       };
+    case "DELETE_ERROR":
+      return {
+        ...state,
+        error: {},
+      };
     case "SUBMIT_TASK_SUCCESS":
       return {
         ...state,

@@ -22,7 +22,6 @@ const Login = () => {
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   localStorage.removeItem("api_key");
-
   const handleFinish = async (values) => {
     const inputData = {
       email: values.email,
@@ -38,11 +37,12 @@ const Login = () => {
     }
   };
   useEffect(() => {
-    let time = setTimeout(() => setError(null), 1000);
+    let time = setTimeout(() => setError(null), 2000);
     return () => {
       clearTimeout(time);
     };
   }, [error]);
+
   return (
     <div>
       <div className="login">
@@ -68,7 +68,7 @@ const Login = () => {
                 message: "Invalid email",
               },
             ]}>
-            <Input size="large" />
+            <Input size="large" placeholder="Email" />
           </Form.Item>
           <Form.Item
             placeholder="Password"
@@ -79,7 +79,7 @@ const Login = () => {
                 message: "Please input your password!",
               },
             ]}>
-            <Input.Password size="large" />
+            <Input.Password size="large" placeholder="Password" />
           </Form.Item>
           <Form.Item>
             <Button

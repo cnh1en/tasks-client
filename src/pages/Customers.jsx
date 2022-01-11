@@ -64,6 +64,7 @@ const Customers = () => {
       title: "Name",
       dataIndex: "name",
       key: "name",
+
       render: (text) => (
         <span style={{ color: "#1890ff", textTransform: "capitalize" }}>
           {text}
@@ -74,12 +75,14 @@ const Customers = () => {
       title: "Age",
       dataIndex: "date",
       key: "date",
+
       render: (date) => <p>{moment().diff(date, "years")}</p>,
     },
     {
       title: "Gender",
       dataIndex: "gender",
       key: "gender",
+
       render: (text) => (
         <span style={{ textTransform: "capitalize" }}>{text}</span>
       ),
@@ -88,11 +91,13 @@ const Customers = () => {
       title: "Email",
       dataIndex: "email",
       key: "email",
+      responsive: ["lg"],
     },
     {
       title: "Phone",
       dataIndex: "phone",
       key: "phone",
+      responsive: ["lg"],
     },
 
     {
@@ -121,9 +126,10 @@ const Customers = () => {
     {
       title: "Action",
       key: "action",
+
       render: (text, record, index) => (
         <>
-          <Space size="small">
+          <Space size="small" wrap>
             {record.usertype === "normal" ? (
               <>
                 <Button

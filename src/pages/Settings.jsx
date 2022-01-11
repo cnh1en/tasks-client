@@ -1,11 +1,11 @@
 import { Col, Row, Typography } from "antd";
 import React, { useState } from "react";
-import { Form, Input, Button, Checkbox } from "antd";
+import { Form, Input, Button } from "antd";
 import { useHistory } from "react-router-dom";
-
 import "../components/settings/settings.css";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
+import { URL } from "../constaint";
 
 const Settings = () => {
   const [error, setError] = useState();
@@ -18,11 +18,15 @@ const Settings = () => {
     };
     const apiKey = localStorage.getItem("api_key");
     try {
-      const changePass = await axios.post("/api/v1/user/change-pass", data, {
-        headers: {
-          "X-API-Key": apiKey,
-        },
-      });
+      const changePass = await axios.post(
+        `${URL}/api/v1/user/change-pass`,
+        data,
+        {
+          headers: {
+            "X-API-Key": apiKey,
+          },
+        }
+      );
       console.log(changePass);
       toast.success("Successfully!!");
       localStorage.removeItem("api_key");
@@ -52,7 +56,7 @@ const Settings = () => {
               {error ? error : ""}
             </Typography.Title>
             <Row type="flex" align="center">
-              <Col span={12}>
+              <Col span={14}>
                 <Form size="large" onFinish={onFinish}>
                   <Form.Item
                     rules={[

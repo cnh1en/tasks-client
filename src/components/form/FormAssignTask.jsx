@@ -36,6 +36,9 @@ const FormAssignTask = (props) => {
       clearTimeout(time);
     };
   }, [error]);
+  useEffect(() => {
+    setErrorTask(null);
+  }, []);
   const dispatch = useDispatch();
   const [form] = Form.useForm();
 
@@ -62,7 +65,7 @@ const FormAssignTask = (props) => {
       });
     } else form.resetFields();
   };
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     const inputData = {
       title: values.title,
       assignto: values.select,
@@ -74,12 +77,12 @@ const FormAssignTask = (props) => {
       project: "Hello World",
     };
     if (props.flag) {
-      async function Test() {
-        await dispatch(createTask(inputData));
-        dispatch(getAllUser());
-      }
-      Test();
+      await dispatch(createTask(inputData));
+      await dispatch(getAllUser());
     } else {
+      if (inputData.deadlineAt.diff(moment(), "days") >= 1) {
+        inputData.status = "pending";
+      }
       dispatch(updateTaskAction(props.updateTask._id, inputData));
     }
   };

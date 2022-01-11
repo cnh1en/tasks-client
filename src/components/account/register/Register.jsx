@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./register.css";
-import { useDispatch } from "react-redux";
-import { register } from "../../redux/actions/UserAction";
-import { Redirect } from "react-router-dom";
+
 import FormRegister from "../../form/FormRegister";
 import { ToastContainer } from "react-toastify";
 

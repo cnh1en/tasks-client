@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { URL } from "../../../constaint";
 const getUser = (data) => (dispatch) => {
   dispatch({
     type: "GET_USER",
@@ -11,7 +11,7 @@ const getUser = (data) => (dispatch) => {
 const getUserCurrent = () => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    const user_current = await axios.get("/api/v1/user", {
+    const user_current = await axios.get(`${URL}/api/v1/user`, {
       headers: {
         "X-API-Key": api_key,
       },
@@ -33,7 +33,7 @@ const getUserCurrent = () => async (dispatch) => {
 
 const getAllUser = () => async (dispatch) => {
   try {
-    const resp = await axios.get("/api/v1/user/user-list", {
+    const resp = await axios.get(`${URL}/api/v1/user/user-list`, {
       headers: {
         "X-API-Key": localStorage.getItem("api_key"),
       },
@@ -52,7 +52,7 @@ const getAllUser = () => async (dispatch) => {
 
 const register = (data) => async (dispatch) => {
   try {
-    const newUser = await axios.post("/api/v1/user/register", data);
+    const newUser = await axios.post(`${URL}/api/v1/user/register`, data);
     dispatch({
       type: "CREATE_USER_SUCCESS",
       payload: newUser.data.user,
@@ -73,7 +73,7 @@ const register = (data) => async (dispatch) => {
 const deleteUser = (id) => async (dispatch) => {
   const apiKey = localStorage.getItem("api_key");
   try {
-    await axios.delete(`/api/v1/user/${id}`, {
+    await axios.delete(`${URL}/api/v1/user/${id}`, {
       headers: {
         "X-API-Key": apiKey,
       },
@@ -93,7 +93,7 @@ const updateUser = (userId, updatedData) => async (dispatch) => {
 
   try {
     const updatedUser = await axios.patch(
-      `/api/v1/user/${userId}`,
+      `${URL}/api/v1/user/${userId}`,
       updatedData,
       {
         headers: {
@@ -126,7 +126,7 @@ const changeInfo = (userId, updatedData) => async (dispatch) => {
 
   try {
     const updatedUser = await axios.patch(
-      `/api/v1/user/${userId}`,
+      `${URL}/api/v1/user/${userId}`,
       updatedData,
       {
         headers: {

@@ -28,8 +28,8 @@ const Profile = () => {
             <div className="col-4 flex-center">
               <Avatar
                 size={{
-                  xs: 40,
-                  sm: 100,
+                  xs: 150,
+                  sm: 200,
                   md: 200,
                   lg: 300,
                   xl: 300,
@@ -42,10 +42,10 @@ const Profile = () => {
                 Change Information
               </Button>
             </div>
-            <div className="col-8">
-              <div className="profile__name">{user.name}</div>
+            <div className="col-8 profile">
+              <div className="profile__name pull-center">{user.name}</div>
               <div className="profile__info">
-                <div className="col-6 profile__wrap">
+                <div className="col-6 profile__wrap profile__col">
                   <div className="profile__item profile__gender">
                     <span>Gender: </span>
                     {user.gender}
@@ -59,7 +59,7 @@ const Profile = () => {
                     {user.location}
                   </div>
                 </div>
-                <div className="col-6 profile__wrap">
+                <div className="col-6 profile__wrap profile__col">
                   <div className="profile__item profile__usertype">
                     <span>Position: </span>
                     {user.usertype}

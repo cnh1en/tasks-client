@@ -22,14 +22,12 @@ const SidebarItem = (props) => {
     </div>
   );
 };
-const addActvieSidebar = (toggle_ref, content_ref, layout__content) => {
-  document.addEventListener("click", (e) => {
-    if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-      content_ref.current.classList.toggle("active");
-      layout__content.current &&
-        layout__content.current.classList.toggle("active");
-    }
-  });
+const addActvieSidebar = (toggle_ref, content_ref, layout__content, e) => {
+  if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
+    content_ref.current.classList.toggle("active");
+    layout__content.current &&
+      layout__content.current.classList.toggle("active");
+  }
 };
 
 const Sidebar = (props) => {
@@ -46,10 +44,14 @@ const Sidebar = (props) => {
 
   const btn_toggle = useRef(null);
   const sidebar = useRef(null);
-  addActvieSidebar(btn_toggle, sidebar, layout__content);
   return (
     <div className="sidebar" ref={sidebar}>
-      <div className="btn-toggle" ref={btn_toggle}>
+      <div
+        className="btn-toggle"
+        ref={btn_toggle}
+        onClick={(e) =>
+          addActvieSidebar(btn_toggle, sidebar, layout__content, e)
+        }>
         <i className="bx bx-menu"></i>
       </div>
       <div className="sidebar__logo">

@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, DatePicker, Form, Input, Modal, Select } from "antd";
+import { Button, DatePicker, Form, Input, Select } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { changeInfo, register, updateUser } from "../redux/actions/UserAction";
 import { useState } from "react";
 import { useEffect } from "react";
 import moment from "moment";
-import { useRef } from "react";
 
 const validateMessages = {
   required: "${label} is required!",
@@ -30,6 +29,7 @@ const FormRegister = (props) => {
         date: moment(dataRow.date),
       });
     } else form.resetFields();
+    setError(null);
   };
 
   const [dataRow, setDataRow] = useState(props.dataRowTable);
@@ -50,8 +50,14 @@ const FormRegister = (props) => {
   }, [props.dataRowTable, dataRow]);
   useEffect(() => {
     setError(stateError);
-    setTimeout(() => setError(null), 1000);
+    let time = setTimeout(() => setError(null), 5000);
+    return () => {
+      clearTimeout(time);
+    };
   }, [stateError]);
+  useEffect(() => {
+    setError(null);
+  }, []);
 
   const onFinish = (values) => {
     const inputData = {
@@ -67,7 +73,6 @@ const FormRegister = (props) => {
     if (props.flag === "post") {
       dispatch(register(inputData));
     } else if (props.flag === "patch") {
-      console.log(inputData);
       dispatch(updateUser(props.dataRowTable._id, inputData));
     } else {
       dispatch(
@@ -77,6 +82,7 @@ const FormRegister = (props) => {
         })
       );
     }
+    setError(stateError);
   };
 
   return (

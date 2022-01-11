@@ -1,8 +1,8 @@
 import axios from "axios";
-
+import { URL } from "../constaint";
 const checkTask = async () => {
   return axios
-    .get("/api/v1/task/check-task", {
+    .get(`${URL}/api/v1/task/check-task`, {
       headers: {
         "X-API-Key": localStorage.getItem("api_key"),
       },

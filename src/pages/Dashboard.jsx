@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import StatusCard from "../components/status-card/StatusCard";
-import Chart from "react-apexcharts";
-import TableData from "../components/table/Table";
 import Loading from "../components/loading/Loading";
 import { useSelector } from "react-redux";
 import { Modal, Table } from "antd";
@@ -25,16 +23,6 @@ const Dashboard = () => {
   const showModal = () => setIsModal(true);
   const handleOk = () => setIsModal(false);
   const handleCancel = () => setIsModal(false);
-  const chartOptions = {
-    series: [tasks_completed.length, tasks_pending.length],
-
-    options: {
-      labels: ["Completed task", "Pending task"],
-      legend: {
-        position: "bottom",
-      },
-    },
-  };
   const columns = [
     {
       title: "Name",
@@ -58,27 +46,27 @@ const Dashboard = () => {
       <h1>DASHBOARD</h1>
       <div className="row">
         <div className="col-12">
-          <div className="row">
-            <div className="col-6">
+          <div className="row card-row">
+            <div className="col-6 card-full">
               <StatusCard
                 icon={"bx bx-user"}
                 title={"Employees"}
                 count={users.length}
               />
               <StatusCard
-                icon={"bx bx-user"}
+                icon={"bx bx-gift"}
                 title={"Tasks"}
                 count={tasks.length}
               />
             </div>
-            <div className="col-6">
+            <div className="col-6 card-full">
               <StatusCard
-                icon={"bx bx-user"}
+                icon={"bx bx-task"}
                 title={"Completed task"}
                 count={tasks_completed.length}
               />
               <StatusCard
-                icon={"bx bx-user"}
+                icon={"bx bx-task-x"}
                 title={"Pending task"}
                 count={tasks_pending.length}
               />

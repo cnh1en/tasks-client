@@ -1,11 +1,10 @@
-import { convertLegacyProps } from "antd/lib/button/button";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import { URL } from "../../../constaint";
 const getAllTask = () => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    const resp = await axios.get("/api/v1/task", {
+    const resp = await axios.get(`${URL}/api/v1/task`, {
       headers: {
         "X-API-Key": api_key,
       },
@@ -25,7 +24,7 @@ const getAllTask = () => async (dispatch) => {
 const deleteTask = (id) => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    await axios.delete(`/api/v1/task/${id}`, {
+    await axios.delete(`${URL}/api/v1/task/${id}`, {
       headers: {
         "X-API-Key": api_key,
       },
@@ -45,7 +44,7 @@ const deleteTask = (id) => async (dispatch) => {
 const createTask = (data) => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    const task = await axios.post("/api/v1/task/create-task", data, {
+    const task = await axios.post(`${URL}/api/v1/task/create-task`, data, {
       headers: {
         "X-API-Key": api_key,
       },
@@ -69,7 +68,7 @@ const createTask = (data) => async (dispatch) => {
 const updateTaskAction = (taskId, data) => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    const task = await axios.patch(`api/v1/task/${taskId}`, data, {
+    const task = await axios.patch(`${URL}/api/v1/task/${taskId}`, data, {
       headers: {
         "X-API-Key": api_key,
       },
@@ -99,7 +98,7 @@ const submitTask = (taskId) => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
     const task = await axios.patch(
-      `api/v1/task/submit-task/${taskId}`,
+      `${URL}/api/v1/task/submit-task/${taskId}`,
       {},
       {
         headers: {
@@ -125,11 +124,14 @@ const submitTask = (taskId) => async (dispatch) => {
 const deleteAllTask = (email) => async (dispatch) => {
   const api_key = localStorage.getItem("api_key");
   try {
-    const tasks = await axios.delete(`/api/v1/task/delete-all-task/${email}`, {
-      headers: {
-        "X-API-Key": api_key,
-      },
-    });
+    const tasks = await axios.delete(
+      `${URL}/api/v1/task/delete-all-task/${email}`,
+      {
+        headers: {
+          "X-API-Key": api_key,
+        },
+      }
+    );
     dispatch({
       type: "DELETE_ALL_TASK",
       payload: tasks.data.tasks,
@@ -140,6 +142,11 @@ const deleteAllTask = (email) => async (dispatch) => {
     }
     console.log(error.response);
   }
+};
+const clearError = () => {
+  return {
+    type: "DELETE_ERROR",
+  };
 };
 const clearTask = () => {
   return {
@@ -154,4 +161,5 @@ export {
   updateTaskAction,
   submitTask,
   deleteAllTask,
+  clearError,
 };

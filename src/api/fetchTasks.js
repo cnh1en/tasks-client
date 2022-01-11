@@ -1,9 +1,11 @@
 import axios from "axios";
+import { URL } from "../constaint";
+
 const fetchTask = async (setState) => {
   const api_key = localStorage.getItem("api_key");
 
   try {
-    const resp = await axios.get("/api/v1/task", {
+    const resp = await axios.get(`${URL}/api/v1/task`, {
       headers: {
         "X-API-Key": api_key,
       },

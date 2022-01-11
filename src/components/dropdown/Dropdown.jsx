@@ -1,23 +1,30 @@
 import React, { useRef } from "react";
+import { useEffect } from "react";
 
 import "./dropdown.css";
 
-const clickOutsieRef = (toggle_ref, content_ref) => {
-  document.addEventListener("click", (e) => {
-    if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
-      content_ref.current.classList.toggle("active");
-    } else {
-      if (content_ref.current && !content_ref.current.contains(e.target)) {
-        content_ref.current.classList.remove("active");
-      }
+const clickOutsieRef = (toggle_ref, content_ref, e) => {
+  if (toggle_ref.current && toggle_ref.current.contains(e.target)) {
+    content_ref.current.classList.toggle("active");
+  } else {
+    if (content_ref.current && !content_ref.current.contains(e.target)) {
+      content_ref.current.classList.remove("active");
     }
-  });
+  }
 };
 
 const Dropdown = (props) => {
   const dropdown_toggle_el = useRef(null);
   const dropdown_content_el = useRef(null);
-  clickOutsieRef(dropdown_toggle_el, dropdown_content_el);
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) =>
+      clickOutsieRef(dropdown_toggle_el, dropdown_content_el, e)
+    );
+    return () =>
+      document.removeEventListener("mousedown", (e) =>
+        clickOutsieRef(dropdown_toggle_el, dropdown_content_el, e)
+      );
+  }, []);
   return (
     <div className="dropdown">
       <button ref={dropdown_toggle_el} className="dropdown__toggle">

@@ -36,7 +36,7 @@ function Layout() {
       dispatch(getUserCurrent());
       dispatch(getAllUser());
       dispatch(getAllTask());
-      checkTask();
+      // checkTask();
     }
   }, []);
   const layout_content = useRef(null);

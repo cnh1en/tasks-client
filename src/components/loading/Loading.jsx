@@ -2,7 +2,7 @@ import React from "react";
 import "./loading.css";
 const Loading = () => {
   return (
-    <div>
+    <div className="card card-loading">
       <div className="loader"></div>
     </div>
   );
