@@ -4,14 +4,11 @@ import "./css/Customer.css";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../components/loading/Loading";
 import { deleteUser } from "../components/redux/actions/UserAction";
-import {
-  deleteAllTask,
-  getAllTask,
-} from "../components/redux/actions/TaskAction";
+import { deleteAllTask } from "../components/redux/actions/TaskAction";
 import FormRegister from "../components/form/FormRegister";
 import { Space, Table, Tag, Modal, Button } from "antd";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 const searchUser = (user, info) => {
   const { name, email, phone, date, location, usertype } = user;
   return (
@@ -82,7 +79,7 @@ const Customers = () => {
       title: "Gender",
       dataIndex: "gender",
       key: "gender",
-
+      responsive: ["sm"],
       render: (text) => (
         <span style={{ textTransform: "capitalize" }}>{text}</span>
       ),
@@ -106,7 +103,7 @@ const Customers = () => {
       key: "location",
     },
     {
-      title: "Usertype",
+      title: "User type",
       key: "usertype",
       dataIndex: "usertype",
 

@@ -200,6 +200,7 @@ input {
   .profile {
     width: 100%;
   }
+
   .profile__item {
     display: flex;
     flex-direction: column;

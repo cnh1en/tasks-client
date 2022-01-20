@@ -28,6 +28,9 @@ const Dashboard = () => {
       title: "Name",
       key: "name",
       dataIndex: "name",
+      render: (text) => (
+        <span style={{ textTransform: "capitalize" }}>{text}</span>
+      ),
     },
     {
       title: "Tasks",
@@ -73,16 +76,7 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        {/* <div className="col-4">
-          <div className="card full-height">
-            <Chart
-              options={chartOptions.options}
-              series={chartOptions.series}
-              type="pie"
-              width={300}
-            />
-          </div>
-        </div> */}
+
         <div className="col-5 information">
           <div className="card">
             <div className="card__header">

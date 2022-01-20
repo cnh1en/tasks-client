@@ -38,6 +38,7 @@ const Weather = () => {
       title: "Weather",
       dataIndex: "weather",
       key: "icon",
+      responsive: ["sm"],
       render: (text) => (
         <img src={`http://openweathermap.org/img/wn/${text[0].icon}.png`} />
       ),
@@ -46,6 +47,7 @@ const Weather = () => {
       title: "Description",
       dataIndex: "weather",
       key: "desc",
+      responsive: ["md"],
       render: (text) => <span>{text[0].description}</span>,
     },
   ];

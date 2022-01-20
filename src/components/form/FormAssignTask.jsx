@@ -2,21 +2,13 @@ import React from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { DatePicker, Select, Input, Button, Form } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  createTask,
-  getAllTask,
-  updateTaskAction,
-} from "../redux/actions/TaskAction";
+import { createTask, updateTaskAction } from "../redux/actions/TaskAction";
 import { useState } from "react";
 import { useEffect } from "react";
 import moment from "moment";
 import { getAllUser } from "../redux/actions/UserAction";
 const validateMessages = {
   required: "${label} is required!",
-  types: {
-    email: "${label} is not a valid email!",
-    number: "${label} is not a valid number!",
-  },
 };
 function disabledDate(current) {
   // Can not select days before today and today

@@ -56,7 +56,7 @@ const Settings = () => {
               {error ? error : ""}
             </Typography.Title>
             <Row type="flex" align="center">
-              <Col span={14}>
+              <Col span={16}>
                 <Form size="large" onFinish={onFinish}>
                   <Form.Item
                     rules={[

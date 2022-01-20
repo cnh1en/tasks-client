@@ -47,3 +47,14 @@
 .login__submit:hover {
   opacity: 0.8;
 }
+
+@media screen and (max-width: 720px) {
+  .login {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .login {
+    width: 360px;
+  }
+}

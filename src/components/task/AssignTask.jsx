@@ -26,8 +26,8 @@ const AssignTask = () => {
         <FormAssignTask
           userList={userList}
           flag={true}
-          labelCol={{ span: 2 }}
-          wrapperCol={{ span: 20 }}
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 18 }}
           wrapperColBtn={{ span: 20, offset: 2 }}
         />
         <ToastContainer autoClose={2000} hideProgressBar={true} />

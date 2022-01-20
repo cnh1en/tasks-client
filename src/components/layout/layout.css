@@ -13,3 +13,8 @@
 .layout__content-main {
   padding: 30px;
 }
+@media screen and (max-width: 860px) {
+  .layout__content.avt-res {
+    padding-left: 64px;
+  }
+}

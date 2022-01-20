@@ -14,8 +14,8 @@ const Register = () => {
 
         <div className="card__body">
           <FormRegister
-            wrapperCol={{ span: 20 }}
-            labelCol={{ span: 2 }}
+            wrapperCol={{ span: 18 }}
+            labelCol={{ span: 4 }}
             flag={"post"}
           />
         </div>

@@ -10,6 +10,7 @@ const Calen = () => {
   });
   const handleSelect = (value) => {
     setDate({ ...date, selectedValue: value });
+    console.log(value);
     setVisible(true);
   };
   const getListData = (value) => {

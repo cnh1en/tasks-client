@@ -32,12 +32,12 @@ const addActvieSidebar = (toggle_ref, content_ref, layout__content, e) => {
 
 const Sidebar = (props) => {
   const layout__content = props.layoutContent;
-  const state = useSelector((state) => state.UserReducer);
-  const user_current = state.user_current;
+  const user_current = useSelector((state) => state.UserReducer.user_current);
   const sidebar_need =
     user_current && user_current.usertype === "admin"
       ? sidebar_items
       : sidebar_items_normal;
+
   const activeItem = sidebar_need.findIndex(
     (item) => item.route === props.location.pathname
   );
@@ -45,7 +45,7 @@ const Sidebar = (props) => {
   const btn_toggle = useRef(null);
   const sidebar = useRef(null);
   return (
-    <div className="sidebar" ref={sidebar}>
+    <div className="sidebar act-res" ref={sidebar}>
       <div
         className="btn-toggle"
         ref={btn_toggle}

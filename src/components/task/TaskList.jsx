@@ -97,7 +97,9 @@ const TaskList = () => {
             <List.Item>
               <Card
                 title={
-                  <Typography.Title level={2}>{task.title}</Typography.Title>
+                  <Typography.Title level={2} ellipsis>
+                    {task.title}
+                  </Typography.Title>
                 }
                 key={index}
                 extra={
@@ -131,7 +133,7 @@ const TaskList = () => {
                     ) : (
                       <Button
                         type="primary"
-                        disabled={task.status === "success" ? true : false}
+                        disabled={task.status !== "pending" ? true : false}
                         onClick={() => handleSubmit(task._id)}>
                         Submit
                       </Button>
