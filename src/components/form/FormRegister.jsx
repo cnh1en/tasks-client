@@ -146,7 +146,7 @@ const FormRegister = (props) => {
           ]}>
           <Input defaultValue={dataRow ? dataRow.location : ""} />
         </Form.Item>
-        <Form.Item wrapperCol={{ span: 22, offset: 2 }}>
+        <Form.Item wrapperCol={props.wrapperColBtn}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>

@@ -28,7 +28,7 @@ const AssignTask = () => {
           flag={true}
           labelCol={{ span: 4 }}
           wrapperCol={{ span: 18 }}
-          wrapperColBtn={{ span: 20, offset: 2 }}
+          wrapperColBtn={{ offset: 4 }}
         />
         <ToastContainer autoClose={2000} hideProgressBar={true} />
       </div>

@@ -88,6 +88,7 @@ const Profile = () => {
             <FormRegister
               wrapperCol={{ span: 18 }}
               labelCol={{ span: 4 }}
+              wrapperColBtn={{ offset: 4 }}
               dataRowTable={user}
               flag={"change-info"}
             />

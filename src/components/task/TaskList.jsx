@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import "./tasklist.css";
 import { deleteTask, submitTask } from "../redux/actions/TaskAction";
 import FormAssignTask from "../form/FormAssignTask";
-
 import { Button, Card, Tag, Space, Typography, List } from "antd";
 import Modal from "antd/lib/modal/Modal";
 import { ToastContainer } from "react-toastify";
@@ -13,11 +12,14 @@ import { getAllUser } from "../redux/actions/UserAction";
 const searchTask = (task, info) => {
   const { assignto, title, createdAt, deadlineAt, status } = task;
   const infoLowerCase = info.toLowerCase();
+
   return (
     (assignto && assignto.toLowerCase().includes(infoLowerCase)) ||
     (title && title.toLowerCase().includes(infoLowerCase)) ||
-    (createdAt && createdAt.toLowerCase().includes(infoLowerCase)) ||
-    (deadlineAt && deadlineAt.toLowerCase().includes(infoLowerCase)) ||
+    (createdAt &&
+      moment(createdAt).format("DD-MM-YYYY").includes(infoLowerCase)) ||
+    (deadlineAt &&
+      moment(deadlineAt).format("DD-MM-YYYY").includes(infoLowerCase)) ||
     (status && status.toLowerCase().includes(infoLowerCase))
   );
 };
